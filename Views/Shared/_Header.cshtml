@@ -1,0 +1,36 @@
+﻿<header>
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg navbar-dark py-4 fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img width="117" height="59" src="https://pizzium.com/wp-content/uploads/2020/09/logo-pizzium.svg" class="attachment-full size-full" alt="" loading="lazy" style="max-height: 30px;">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse flex-grow-0" id="navbarNav">
+                    <ul class="navbar-nav gap-3">
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Pizza" asp-action="Index">Menu</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" asp-area="" asp-controller="Home" asp-action="Prenota">Prenota</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" asp-area="" asp-controller="Home" asp-action="Ordina">Ordina</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="EserciziRazor" asp-action="Index">Esercizi</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" asp-area="" asp-controller="Home" asp-action="Contatti">Contatti</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>

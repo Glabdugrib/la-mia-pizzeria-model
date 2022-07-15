@@ -1,0 +1,58 @@
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-top: 91px;
+    min-height: calc(100vh - 91px);
+}
+
+a {
+    color: white!important;
+    text-transform: uppercase;
+    font-weight: 600;
+    }
+
+a:hover {
+    text-decoration: underline;
+}
+
+a.disabled {
+    text-decoration: line-through;
+    color: grey!important;
+}
+
+.navbar,
+footer {
+    background-color: #cd2a17 !important;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.social-links {
+    color: white;
+    font-size: 30px;
+}
+
+#hero {
+    width: 100%;
+}
+
+    #hero img {
+        max-width: 100%;
+        min-width: 100%;
+    }

@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Le nostre pizze";
+}
+
+@model List<Pizza>
+
+@if (Model.Count() == 0) // aggiungere la condizione
+{
+    // se non c'è nessun elemento
+    <div class="col-12">
+        <p class="text-center">Nessuna pizza da visualizzare!</p>
+    </div>
+}
+else
+{
+    @foreach(Pizza pizza in Model)
+    {
+        <div class="col-auto">
+            <a href="@Url.Action("Details", "Pizza", new {Id = pizza.Id})">
+                <div class="card" style="width: 18rem; padding: 0;">
+                    <img src="@pizza.ImagePath" class="card-img-top card-img" style="min-height: 200px; max-height: 200px; object-fit: cover; object-fit: center;" alt="">
+                    <div class="card-body text-black">
+                        <h5 class="card-title">@pizza.Name</h5>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">@pizza.Price.ToString("C2")</li>
+                    </ul>
+                </div>
+            </a>
+        </div>
+    } 
+}
+

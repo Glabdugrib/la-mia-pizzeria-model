@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Esercizi Razor";
+}
+
+@*1. Dichiarare una variabile valorizzandola con il nostro nome.
+     Dichiarare un'altra variabile valorizzandola con il nostro cognome.
+     Stampare il nostro nome e cognome all'interno di un tag h2.
+*@
+
+@{
+    string name = "Simone";
+    string surname = "Sada";
+}
+
+<h2>@name@surname</h2>
+
+
+@*2. Creare una funzione che stampa la somma dei numeri che vanno da 1 a n (con n passato come parametro - n incluso)
+Stampare dentro uno span il risultato.*@
+
+@{
+    int n = 10;
+
+    int PrintNumbers(int n)
+    {
+        int sum = 0;
+
+        for(int x = 1; x <= n; x++)
+        {
+            sum += x;
+        }
+
+        return sum;
+    }
+}
+
+<span>Somma dei numeri da 1 a @n: @PrintNumbers(@n)</span>
+
+
+@*3. Contare quante volte la lettera a è presente nalla frase "nel mezzo del cammin di nostra vita" e stampare questo valore in pagina*@
+
+@{
+    string stringa = "nel mezzo del cammin di nostra vita";
+    char carattere = 'a';
+
+    int CountChar(string inputString, char inputChar)
+    {
+        int count = 0;
+
+        for(int i = 0; i < inputString.Length; i++)
+        {
+            if(inputString[i] == inputChar)
+            {
+                count++;
+            }
+        }
+
+        return count;
+    }
+}
+
+<p>La stringa "@stringa" contiene @CountChar(@stringa, @carattere) volte il carattere '@carattere'.</p>
+
+
+@*4. Creare una List<int> di 20 numeri interi (generati random da 1 a 90, 1 e 90 inclusi) e mostrare in pagina solo i numeri compresi tra 20 e 70*@
+
+@{
+    List<int> list = new List<int>();
+
+    int listLength = 20;
+
+    int min = 1;
+    int max = 90;
+
+    Random rnd = new Random();
+
+    for(int i = 0; i < listLength; i++)
+    {
+        list.Add(rnd.Next(min, max+1));
+    }
+
+    list.Sort();
+}
+
+<ul>
+    @foreach(int x in list)
+    {
+        if(x >= 20 && x <= 70)
+        {
+            <li>@x</li>
+        }
+    }
+</ul>
+
+
+@*5. Stampare in pagina la data e l'ora attuale (usando la classe DateTime) con il formato anno-mese-giorno ore:minuti:secondi*@
+
+<p>Data e ora attuale: @DateTime.Now.ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss")</p>
+
+
+@*6. Partendo dalla data di oggi (usando la classe DateTime) stampare in pagina
+a. la data di 7 giorni fa
+b. che giorno della settimana è oggi (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)
+c. che giorno della settimana sarà nello stesso giorno e mese di oggi ma tra un anno (il risultato dovrà essere il nome del giorno (Lunedì, Martedì, ...)*@
+
+<p>Data di 7 giorni fa: @DateTime.Now.AddDays(-7).ToString("yyyy'-'MM'-'dd' 'HH':'mm':'ss")</p>
+<p>Oggi è @DateTime.Now.ToString("dddd")</p>
+
+@{
+    int todayYear = Convert.ToInt32(@DateTime.Now.ToString("yyyy"));
+    int todayMonth = Convert.ToInt32(@DateTime.Now.ToString("MM"));
+    int todayDay = Convert.ToInt32(@DateTime.Now.ToString("dd"));
+
+    DateTime nextYearDate = new DateTime(todayYear+1, todayMonth, todayDay);
+}
+
+<p>L'anno prossimo, nello stesso mese e giorno di oggi, sarà @nextYearDate.ToString("dddd")</p>
